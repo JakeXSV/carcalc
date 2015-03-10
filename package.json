@@ -1,0 +1,23 @@
+{
+  "name": "carcalc",
+  "version": "0.0.0",
+  "description": "a better auto loan calculator",
+  "author": "Jake Prather <JakeHP@Zoho.com>",
+  "private": true,
+  "scripts": {
+    "start": "",
+    "postinstall": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jakehp/carcalc"
+  },
+  "dependencies": {
+    "browserify": "*",
+    "babel": "*",
+    "flux": "*",
+    "react": "*",
+    "bootstrap": "*"
+  },
+  "license": "MIT"
+}
