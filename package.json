@@ -3,21 +3,33 @@
   "version": "0.0.0",
   "description": "a better auto loan calculator",
   "author": "Jake Prather <JakeHP@Zoho.com>",
-  "private": true,
-  "scripts": {
-    "start": "",
-    "postinstall": ""
-  },
+  "main": "src/js/app.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/jakehp/carcalc"
   },
   "dependencies": {
-    "browserify": "*",
-    "babel": "*",
     "flux": "*",
-    "react": "*",
-    "bootstrap": "*"
+    "keymirror": "~0.1.0",
+    "object-assign": "^1.0.0",
+    "react": "*"
   },
+  "devDependencies": {
+    "browserify": "^6.2.0",
+    "envify": "^3.0.0",
+    "reactify": "*",
+    "uglify-js": "~2.4.15",
+    "watchify": "^2.1.1"
+  },
+  "scripts": {
+    "start": "watchify -o public/dist/js/bundle.js -v -d ."
+  },
+  "browserify": {
+    "transform": [
+      "reactify",
+      "envify"
+    ]
+  },
+  "private": true,
   "license": "MIT"
 }
