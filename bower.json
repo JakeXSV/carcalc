@@ -1,0 +1,11 @@
+{
+  "name": "carcalc",
+  "version": "0.0.0",
+  "ignore": [
+    ".jshintrc",
+    "**/*.txt"
+  ],
+  "dependencies": {
+    "bootstrap": null
+  }
+}

@@ -27,6 +27,7 @@ var InputStore = assign({}, EventEmitter.prototype, {
     removeChangeListener: function(callback) {
         this.removeListener(CHANGE_EVENT, callback);
     }
+
 });
 
 AppDispatcher.register(function(action) {
