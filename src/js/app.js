@@ -3,53 +3,87 @@ var InputComponent = require('./components/InputComponent/InputComponent');
 
 var inputs = [];
 var ContainerKey = 'Container';
+var InputsParentDivId = 'inputs';
+
+function validateNumberInput(input){
+    if(input !== undefined){
+        try{
+            parseInt(input);
+            return true;
+        }catch(e){
+            return false;
+        }
+    }else{
+        return false;
+    }
+}
+
+function validatePercentInput(percent){
+    if(percent !== undefined){
+        try{
+            return !isNaN(parseFloat(percent));
+        }catch(e){
+            return false;
+        }
+    }else{
+        return false;
+    }
+}
 
 inputs.push({
     id: 'monthlyIncomeInput',
     type: 'number',
-    label: 'Monthly Income'
+    label: 'Monthly Income',
+    isValid: validateNumberInput
 });
 inputs.push({
     id: 'monthlyExpensesInput',
     type: 'number',
-    label: 'Monthly Expenses'
+    label: 'Monthly Expenses',
+    isValid: validateNumberInput
 });
 inputs.push({
     id: 'safetyNetInput',
     type: 'number',
-    label: 'Safety Net / Reserve'
+    label: 'Safety Net / Reserve',
+    isValid: validateNumberInput
 });
 inputs.push({
     id: 'downPaymentInput',
     type: 'number',
-    label: 'Down Payment'
+    label: 'Down Payment',
+    isValid: validateNumberInput
 });
 inputs.push({
     id: 'tradeInInput',
     type: 'number',
-    label: 'Trade In'
+    label: 'Trade In',
+    isValid: validateNumberInput
 });
 inputs.push({
     id: 'salesTaxInput',
     type: 'number',
     label: 'Sales Tax',
-    placeholder: '5.1'
+    placeholder: '5.1',
+    isValid: validatePercentInput
 });
 inputs.push({
     id: 'interestRateInput',
     type: 'number',
     label: 'Interest Rate (APR)',
-    placeholder: '2.9'
+    placeholder: '2.9',
+    isValid: validatePercentInput
 });
 inputs.push({
     id: 'termInput',
     type: 'number',
     label: 'Term (Months)',
-    placeholder: '72'
+    placeholder: '72',
+    isValid: validateNumberInput
 });
 
 inputs.forEach(function(e){
-   renderInput(e, 'content');
+   renderInput(e, InputsParentDivId);
 });
 
 function renderInput(inputObj, parentElementId){
@@ -60,6 +94,7 @@ function renderInput(inputObj, parentElementId){
             type={inputObj.type}
             label={inputObj.label}
             placeholder={inputObj.placeholder||''}
+            isValid={inputObj.isValid}
             />,
         div
     );
