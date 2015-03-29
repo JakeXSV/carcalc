@@ -34,7 +34,7 @@ AppDispatcher.register(function(action) {
 
     switch(action.actionType) {
         case InputConstants.INPUT_CHANGE:
-            _inputs[action.key] = action.value;
+            _inputs[action.modelKey] = action.modelValue;
             InputStore.emitChange();
             break;
         default:

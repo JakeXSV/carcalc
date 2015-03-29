@@ -6,7 +6,8 @@ var InputActions = {
     upsert: function(input) {
         AppDispatcher.dispatch({
             actionType: InputConstants.INPUT_CHANGE,
-            value: input.value
+            modelKey: input.modelKey,
+            modelValue: input.modelValue
         });
     }
 
