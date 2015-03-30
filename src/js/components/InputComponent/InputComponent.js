@@ -14,14 +14,12 @@ var InputComponent = React.createClass({
         }
     },
     render: function() {
-
         var before, after;
         if(this.props.addOnBeforeInput === undefined || this.props.addOnBeforeInput){
             before = <span className="input-group-addon">{this.props.addOn}</span>;
         }else{
             after = <span className="input-group-addon">{this.props.addOn}</span>;
         }
-
         return (
             <div>
                 <label className="label label-default" htmlFor={this.props.id}>{this.props.label}</label>
@@ -40,7 +38,6 @@ var InputComponent = React.createClass({
                 </div>
             </div>
         );
-
     }
 });
 

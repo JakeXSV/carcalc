@@ -1,7 +1,6 @@
 # Created by https://www.gitignore.io
 
 public/lib
-public/js
 
 ### Intellij ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
