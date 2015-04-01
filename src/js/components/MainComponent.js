@@ -1,7 +1,9 @@
 var React = require('react');
 var InputComponent = require('./InputComponent/InputComponent');
+var ResultComponent = require('./ResultComponent/ResultComponent');
 
 var MainComponent = React.createClass({
+
     render: function() {
         var inputs;
         if(this.props.inputs !== undefined && this.props.inputs.length > 0) {
@@ -23,6 +25,7 @@ var MainComponent = React.createClass({
         return (
             <div className="mainComponent">
                 {inputs}
+                <ResultComponent />
             </div>
         );
     }
