@@ -1,23 +1,26 @@
+/*
+  undefined's are ok, defaults are set for inputs (and if no default, calc simply isn't made)
+ */
 module.exports.validateNumberInput = function(input){
-    if(input !== undefined){
-        try{
-            parseInt(input);
+    try{
+        if(input === undefined){
             return true;
-        }catch(e){
-            return false;
+        }else{
+            parseInt(input);
         }
-    }else{
+        return true;
+    }catch(e){
         return false;
     }
 };
 module.exports.validatePercentInput = function(percent){
-    if(percent !== undefined){
-        try{
+    try{
+        if(percent === undefined){
+            return true;
+        }else{
             return !isNaN(parseFloat(percent));
-        }catch(e){
-            return false;
         }
-    }else{
+    }catch(e){
         return false;
     }
 };

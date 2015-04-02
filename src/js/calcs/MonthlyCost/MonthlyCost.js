@@ -9,7 +9,7 @@ module.exports = function(){
             id: 'vehiclePrice',
             type: 'number',
             label: 'Vehicle Price',
-            placeholder: DefaultConstants.VEHICLE_PRICE_DEFAULT,
+            default: DefaultConstants.VEHICLE_PRICE_DEFAULT,
             addOn: '$',
             isValid: Validators.validateNumberInput
         },
@@ -17,7 +17,7 @@ module.exports = function(){
             id: 'downPayment',
             type: 'number',
             label: 'Down Payment',
-            placeholder: DefaultConstants.DOWN_PAYMENT_DEFAULT,
+            default: DefaultConstants.DOWN_PAYMENT_DEFAULT,
             addOn: '$',
             isValid: Validators.validateNumberInput
         },
@@ -25,7 +25,7 @@ module.exports = function(){
             id: 'tradeIn',
             type: 'number',
             label: 'Trade In',
-            placeholder: DefaultConstants.TRADE_IN_DEFAULT,
+            default: DefaultConstants.TRADE_IN_DEFAULT,
             addOn: '$',
             isValid: Validators.validateNumberInput
         },
@@ -33,7 +33,7 @@ module.exports = function(){
             id: 'salesTax',
             type: 'number',
             label: 'Sales Tax',
-            placeholder: DefaultConstants.SALES_TAX_DEFAULT,
+            default: DefaultConstants.SALES_TAX_DEFAULT,
             addOnBeforeInput: false,
             addOn: '%',
             isValid: Validators.validatePercentInput
@@ -42,7 +42,7 @@ module.exports = function(){
             id: 'interestRate',
             type: 'number',
             label: 'Interest Rate (APR)',
-            placeholder: DefaultConstants.INTEREST_RATE_DEFAULT,
+            default: DefaultConstants.INTEREST_RATE_DEFAULT,
             addOnBeforeInput: false,
             addOn: '%',
             isValid: Validators.validatePercentInput
@@ -51,7 +51,7 @@ module.exports = function(){
             id: 'termInput',
             type: 'number',
             label: 'Term (Months)',
-            placeholder: DefaultConstants.TERM_DEFAULT,
+            default: DefaultConstants.TERM_DEFAULT,
             addOnBeforeInput: false,
             addOn: 'months',
             isValid: Validators.validateNumberInput
@@ -62,10 +62,28 @@ module.exports = function(){
         return inputs;
     }
 
+    function requiredInputsExist(inputValues){
+        var isValid = true;
+        inputs.forEach(function(e){
+            if(inputValues[e.id] === undefined){
+                if(e.default !== undefined){
+                    inputValues[e.id] = e.default;
+                }else{
+                    isValid = false;
+                }
+            }
+        });
+        return isValid;
+    }
+
     function calculate(inputValues){
-        console.log("Calculate Monthly Cost!");
-        //TODO
-        return 50;
+        if(requiredInputsExist(inputValues)){
+            // TODO
+            console.log("Calculate Monthly Cost!");
+            return 50;
+        }else{
+            return undefined;
+        }
     }
 
     return {

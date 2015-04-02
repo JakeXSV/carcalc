@@ -22,7 +22,7 @@ var ResultComponent = React.createClass({
     },
     getInitialState: function(){
         return {
-            monthlyCost: "0"
+            monthlyCost: undefined
         };
     },
     render: function() {

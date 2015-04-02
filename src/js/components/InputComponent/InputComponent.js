@@ -4,11 +4,14 @@ var InputActions = require('../../actions/InputActions');
 var InputComponent = React.createClass({
     _onInputChange: function(){
         var input = React.findDOMNode(this.refs.input).value.trim();
-        if(this.props.isValid !== undefined && typeof this.props.isValid === 'function' && this.props.isValid(input)){
-            InputActions.upsert({
-                modelKey: this.props.id,
-                modelValue: input
-            });
+        if(this.props.isValid !== undefined && typeof this.props.isValid === 'function'){
+            if(input === ''){ input = undefined; } //deleted their input; resort to undefined||defaults
+            if(this.props.isValid(input)){
+                InputActions.upsert({
+                    modelKey: this.props.id,
+                    modelValue: input
+                });
+            }
         }else{
             throw this.props.id + ' was not provided a validate function.';
         }
@@ -30,7 +33,7 @@ var InputComponent = React.createClass({
                         id={this.props.id}
                         type={this.props.type}
                         name={this.props.id}
-                        placeholder={this.props.placeholder}
+                        placeholder={this.props.default}
                         onChange={this._onInputChange}
                         ref="input"
                     />
