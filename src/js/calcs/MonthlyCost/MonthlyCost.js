@@ -11,7 +11,8 @@ module.exports = function(){
             label: 'Vehicle Price',
             default: DefaultConstants.VEHICLE_PRICE_DEFAULT,
             addOn: '$',
-            isValid: Validators.validateNumberInput
+            isValid: Validators.validateNumberInput,
+            convert: function(e){ return parseInt(e); }
         },
         {
             id: 'downPayment',
@@ -19,7 +20,8 @@ module.exports = function(){
             label: 'Down Payment',
             default: DefaultConstants.DOWN_PAYMENT_DEFAULT,
             addOn: '$',
-            isValid: Validators.validateNumberInput
+            isValid: Validators.validateNumberInput,
+            convert: function(e){ return parseInt(e); }
         },
         {
             id: 'tradeIn',
@@ -27,7 +29,8 @@ module.exports = function(){
             label: 'Trade In',
             default: DefaultConstants.TRADE_IN_DEFAULT,
             addOn: '$',
-            isValid: Validators.validateNumberInput
+            isValid: Validators.validateNumberInput,
+            convert: function(e){ return parseInt(e); }
         },
         {
             id: 'salesTax',
@@ -36,7 +39,8 @@ module.exports = function(){
             default: DefaultConstants.SALES_TAX_DEFAULT,
             addOnBeforeInput: false,
             addOn: '%',
-            isValid: Validators.validatePercentInput
+            isValid: Validators.validatePercentInput,
+            convert: function(e){ return parseFloat(e); }
         },
         {
             id: 'interestRate',
@@ -45,16 +49,18 @@ module.exports = function(){
             default: DefaultConstants.INTEREST_RATE_DEFAULT,
             addOnBeforeInput: false,
             addOn: '%',
-            isValid: Validators.validatePercentInput
+            isValid: Validators.validatePercentInput,
+            convert: function(e){ return parseFloat(e); }
         },
         {
-            id: 'termInput',
+            id: 'term',
             type: 'number',
             label: 'Term (Months)',
             default: DefaultConstants.TERM_DEFAULT,
             addOnBeforeInput: false,
             addOn: 'months',
-            isValid: Validators.validateNumberInput
+            isValid: Validators.validateNumberInput,
+            convert: function(e){ return parseInt(e); }
         }
     );
 
@@ -76,11 +82,19 @@ module.exports = function(){
         return isValid;
     }
 
+    // rate = (APR/Term);
+    // Payment = (Principal * (rate*((1+rate)^term))/(((1+rate)^term)-1) )
     function calculate(inputValues){
         if(requiredInputsExist(inputValues)){
-            // TODO
-            console.log("Calculate Monthly Cost!");
-            return 50;
+            var adjustedInterestRatePercent = inputValues.interestRate * .01;
+            var adjustedSalesTaxPercent = inputValues.salesTax * .01; // 2.9 => .029
+            var salesTaxAmount = inputValues.vehiclePrice * adjustedSalesTaxPercent;
+            var netCost = inputValues.vehiclePrice + salesTaxAmount - inputValues.downPayment - inputValues.tradeIn;
+            var rate = adjustedInterestRatePercent / 12;
+            var rateCalc = (rate * Math.pow((1 + rate), inputValues.term))/(Math.pow((1 + rate), inputValues.term) - 1);
+            var monthly = netCost * rateCalc;
+            monthly = monthly.toFixed(2);
+            return monthly;
         }else{
             return undefined;
         }

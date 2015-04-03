@@ -14,10 +14,11 @@ var MainComponent = React.createClass({
                         id={e.id}
                         type={e.type}
                         label={e.label}
-                        default={e.default||''}
+                        default={e.default}
                         addOnBeforeInput={e.addOnBeforeInput||true}
                         addOn={e.addOn}
                         isValid={e.isValid}
+                        convert={e.convert}
                     />
                 );
             });

@@ -11,14 +11,24 @@ module.exports = function(){
             label: 'Monthly Income',
             placeholder: DefaultConstants.MONTHLY_INCOME_DEFAULT,
             addOn: '$',
-            isValid: Validators.validateNumberInput
+            isValid: Validators.validateNumberInput,
+            convert: function(e){ return parseInt(e); }
         },
         {
             id: 'monthlyExpenses',
             type: 'number',
             label: 'Monthly Expenses',
             addOn: '$',
-            isValid: Validators.validateNumberInput
+            isValid: Validators.validateNumberInput,
+            convert: function(e){ return parseInt(e); }
+        },
+        {
+            id: 'safetyNet',
+            type: 'number',
+            label: 'Safety Net (Cash Reserve)',
+            addOn: '$',
+            isValid: Validators.validateNumberInput,
+            convert: function(e){ return parseInt(e); }
         }
     );
 
