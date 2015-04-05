@@ -1,5 +1,5 @@
 var AppDispatcher = require('../dispatcher/AppDispatcher');
-var InputActionConstants = require('../constants/InputConstants');
+var InputActionConstants = require('../constants/InputActionConstants');
 
 var InputActions = {
 

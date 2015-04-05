@@ -24,3 +24,16 @@ module.exports.validatePercentInput = function(percent){
         return false;
     }
 };
+module.exports.validateRequiredInputsExist = function(inputDefinitions, inputModels){
+    var isValid = true;
+    inputDefinitions.forEach(function(e){
+        if(inputModels[e.id] === undefined){
+            if(e.default !== undefined){
+                inputModels[e.id] = e.default;
+            }else{
+                isValid = false;
+            }
+        }
+    });
+    return isValid;
+};
