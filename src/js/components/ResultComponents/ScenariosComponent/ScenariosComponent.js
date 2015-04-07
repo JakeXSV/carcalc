@@ -2,9 +2,10 @@ var React = require('react');
 var InputStore = require('../../../stores/InputStore');
 var Validators = require('../../../util/Validators');
 var MonthlyCostInputDefinitions = require('../../../defines/MonthlyCostInputDefinitions');
+var ScenariosInputDefinitions = require('../../../defines/ScenariosInputDefinitions');
 var Calculations = require('../../../util/Calculations');
 
-var MonthlyCostComponent = React.createClass({
+var ScenariosComponent = React.createClass({
     _onInputChange: function() {
         this.setState({
             inputs: InputStore.getAll()
@@ -23,7 +24,10 @@ var MonthlyCostComponent = React.createClass({
     },
     render: function() {
         var monthly = undefined;
-        if(Validators.validateRequiredInputsExist(MonthlyCostInputDefinitions.get(), this.state.inputs)){
+        if(
+            Validators.validateRequiredInputsExist(ScenariosInputDefinitions.get(), this.state.inputs) &&
+            Validators.validateRequiredInputsExist(MonthlyCostInputDefinitions.get(), this.state.inputs)
+        ){
             monthly = Calculations.monthlyCost(
                 this.state.inputs.vehiclePrice,
                 this.state.inputs.downPayment,
@@ -32,13 +36,12 @@ var MonthlyCostComponent = React.createClass({
                 this.state.inputs.salesTax,
                 this.state.inputs.term
             );
+            //console.log(this.state.inputs);
         }
         return (
-            <div id="monthlyCost">
-                <h3 className="centerText">${monthly}/month</h3>
-            </div>
+            <div></div>
         );
     }
 });
 
-module.exports = MonthlyCostComponent;
+module.exports = ScenariosComponent;

@@ -1,31 +1,17 @@
 var React = require('react');
-var InputComponent = require('./InputComponent/InputComponent');
+var TitleComponent = require('./TitleComponent/TitleComponent');
+var InputComponentList = require('./InputComponent/InputComponentList');
 var MonthlyCostComponent = require('./ResultComponents/MonthlyCostComponent/MonthlyCostComponent');
+var ScenariosComponent = require('./ResultComponents/ScenariosComponent/ScenariosComponent');
 
 var MainComponent = React.createClass({
     render: function() {
-        var inputs;
-        if(this.props.inputs !== undefined && this.props.inputs.length > 0) {
-            inputs = this.props.inputs.map(function (e) {
-                return (
-                    <InputComponent
-                        key={e.id}
-                        id={e.id}
-                        type={e.type}
-                        label={e.label}
-                        default={e.default}
-                        addOnBeforeInput={e.addOnBeforeInput||true}
-                        addOn={e.addOn}
-                        isValid={e.isValid}
-                        convert={e.convert}
-                    />
-                );
-            });
-        }
         return (
             <div className="mainComponent">
-                {inputs}
+                <TitleComponent />
+                <InputComponentList />
                 <MonthlyCostComponent />
+                <ScenariosComponent />
             </div>
         );
     }
