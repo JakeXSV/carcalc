@@ -6,6 +6,7 @@ module.exports.get = function(){
         "Retirement Is Still 40 Years Out.",
         "When In Doubt Get A V8.",
         "Adrenaline Is Priceless.",
-        "Life It Too Short To Drive A Boring Car."
+        "Life Is Too Short To Drive A Boring Car.",
+        "Just Cut Back On Eating Out."
     ]
 };
