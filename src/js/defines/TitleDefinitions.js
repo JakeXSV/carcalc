@@ -5,6 +5,7 @@ module.exports.get = function(){
         "Can You Really Put A Price On Fun?",
         "Retirement Is Still 40 Years Out.",
         "When In Doubt Get A V8.",
-        "Adrenaline Is Priceless."
+        "Adrenaline Is Priceless.",
+        "Life It Too Short To Drive A Boring Car."
     ]
 };
