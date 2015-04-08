@@ -24,12 +24,10 @@ var InputComponent = React.createClass({
         }else{
             after = <span className="input-group-addon">{this.props.addOn}</span>;
         }
-        var required = this.props.required ? {
-            "background": "red"
-        } : {};
+        var required = this.props.required ? ' required' : '';
         return (
             <div>
-                <label style={required} className="label label-default" htmlFor={this.props.id}>{this.props.label}</label>
+                <label className={"label label-default" + required} htmlFor={this.props.id}>{this.props.label}</label>
                 <div className="input-group">
                     {before}
                     <input
