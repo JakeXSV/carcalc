@@ -23,5 +23,5 @@ An auto loan calculator that doesn't suck. Calculates monthly payment, and provi
 [Express](http://expressjs.com/) - Web app framework  
 **Tools**  
 [bower](http://bower.io/) - client side package management  
-[browserify](https://github.com/andreypopp/reactify) - dependency bundler/commonjs 'loader'
+[browserify](https://github.com/andreypopp/reactify) - dependency bundler/commonjs 'loader'  
 [reactify](https://github.com/andreypopp/reactify) - browserify transform for JSX
