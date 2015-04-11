@@ -21,6 +21,16 @@ module.exports.get = function(){
             addOn: '$',
             isValid: Validators.validateNumberInput,
             convert: function(e){ return parseInt(e); }
+        },
+        {
+            id: 'safetyNet',
+            type: 'number',
+            label: 'Emergency Funds',
+            default: DefaultInputConstants.MONTHLY_EXPENSES_DEFAULT,
+            required: DefaultInputConstants.MONTHLY_EXPENSES_DEFAULT === undefined,
+            addOn: '$',
+            isValid: Validators.validateNumberInput,
+            convert: function(e){ return parseInt(e); }
         }
     ];
     return inputs;

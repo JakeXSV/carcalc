@@ -36,7 +36,6 @@ var ScenariosComponent = React.createClass({
                 this.state.inputs.salesTax,
                 this.state.inputs.term
             );
-            //console.log(this.state.inputs);
         }
         return (
             <div></div>
