@@ -2,7 +2,7 @@ var React = require('react');
 var TitleComponent = require('./TitleComponent/TitleComponent');
 var InputComponentList = require('./InputComponent/InputComponentList');
 var MonthlyCostComponent = require('./ResultComponents/MonthlyCostComponent/MonthlyCostComponent');
-var ScenariosComponent = require('./ResultComponents/ScenariosComponent/ScenariosComponent');
+var PercentOfNetIncomeComponent = require('./ResultComponents/PercentOfNetIncomeComponent/PercentOfNetIncomeComponent');
 
 var MainComponent = React.createClass({
     render: function() {
@@ -11,7 +11,7 @@ var MainComponent = React.createClass({
                 <TitleComponent />
                 <InputComponentList />
                 <MonthlyCostComponent />
-                <ScenariosComponent />
+                <PercentOfNetIncomeComponent />
             </div>
         );
     }

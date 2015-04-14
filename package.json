@@ -9,13 +9,14 @@
     "url": "https://github.com/jakehp/carcalc"
   },
   "dependencies": {
+    "body-parser": "^1.4.3",
+    "express": "^4.4.5",
     "flux": "*",
     "keymirror": "~0.1.0",
     "object-assign": "^1.0.0",
     "react": "*",
     "react-animate": "^1.2.3",
-    "body-parser": "^1.4.3",
-    "express": "^4.4.5"
+    "react-highcharts": "0.0.4"
   },
   "devDependencies": {
     "browserify": "^6.2.0",
