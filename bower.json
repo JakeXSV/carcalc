@@ -6,7 +6,6 @@
     "**/*.txt"
   ],
   "dependencies": {
-    "bootstrap": null,
-    "highcharts.com": null
+    "bootstrap": null
   }
 }

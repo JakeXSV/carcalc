@@ -1,17 +1,15 @@
 var React = require('react');
 var TitleComponent = require('./TitleComponent/TitleComponent');
-var InputComponentList = require('./InputComponent/InputComponentList');
-var MonthlyCostComponent = require('./ResultComponents/MonthlyCostComponent/MonthlyCostComponent');
-var PercentOfNetIncomeComponent = require('./ResultComponents/PercentOfNetIncomeComponent/PercentOfNetIncomeComponent');
+var InputListComponent = require('./InputListComponent/InputListComponent');
+var ResultListComponent = require('./ResultListComponent/ResultListComponent');
 
 var MainComponent = React.createClass({
     render: function() {
         return (
             <div className="mainComponent">
                 <TitleComponent />
-                <InputComponentList />
-                <MonthlyCostComponent />
-                <PercentOfNetIncomeComponent />
+                <InputListComponent />
+                <ResultListComponent />
             </div>
         );
     }

@@ -5,5 +5,5 @@ module.exports.monthlyCost = function(vehiclePrice, downPayment, tradeIn, intere
     var netCost = vehiclePrice + salesTaxAmount - downPayment - tradeIn;
     var rate = adjustedInterestRatePercent / 12;
     var rateCalc = (rate * Math.pow((1 + rate), term))/(Math.pow((1 + rate), term) - 1);
-    return (netCost * rateCalc).toFixed(2);
+    return parseFloat((netCost * rateCalc).toFixed(2));
 };
