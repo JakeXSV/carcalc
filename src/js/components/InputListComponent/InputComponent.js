@@ -12,6 +12,7 @@ var InputComponent = React.createClass({
                 input = this.props.convert(input);
             }
             InputActions.upsert({
+                actionType: this.props.actionType,
                 modelKey: this.props.id,
                 modelValue: input
             });

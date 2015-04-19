@@ -14,6 +14,7 @@ var MainComponent = React.createClass({
                     <InputComponent
                         key={e.id}
                         id={e.id}
+                        actionType={e.actionType}
                         type={e.type}
                         label={e.label}
                         default={e.default}

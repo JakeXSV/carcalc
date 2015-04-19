@@ -1,5 +1,6 @@
 var React = require('react');
 var Highcharts = require('react-highcharts');
+var InputActionConstants = require('../../../constants/InputActionConstants');
 var InputStore = require('../../../stores/InputStore');
 var Validators = require('../../../util/Validators');
 var IncomeBreakdownInputDefinitions = require('../../../defines/IncomeBreakdownInputDefinitions');
@@ -11,10 +12,10 @@ var IncomeBreakdownComponent = React.createClass({
         });
     },
     componentDidMount: function() {
-        InputStore.addChangeListener(this._onInputChange);
+        InputStore.addChangeListener(InputActionConstants.INCOME_BREAKDOWN_INPUT_CHANGE, this._onInputChange);
     },
     componentWillUnmount: function() {
-        InputStore.removeChangeListener(this._onInputChange);
+        InputStore.removeChangeListener(InputActionConstants.INCOME_BREAKDOWN_INPUT_CHANGE, this._onInputChange);
     },
     getInitialState: function() {
         return {
@@ -22,7 +23,6 @@ var IncomeBreakdownComponent = React.createClass({
         };
     },
     render: function() {
-
         var inputs = this.state.inputs;
 
         if(Validators.validateRequiredInputsExist(IncomeBreakdownInputDefinitions.get(), inputs)){

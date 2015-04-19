@@ -3,7 +3,6 @@ var EventEmitter = require('events').EventEmitter;
 var InputConstants = require('../constants/InputActionConstants');
 var assign = require('object-assign');
 
-var CHANGE_EVENT = 'change';
 var _inputs = {};
 
 var InputStore = assign({}, EventEmitter.prototype, {
@@ -11,21 +10,23 @@ var InputStore = assign({}, EventEmitter.prototype, {
     get: function(key){
         return _inputs[key];
     },
-
     getAll: function() {
         return _inputs;
     },
 
-    emitChange: function() {
-        this.emit(CHANGE_EVENT);
+    emitMonthlyCostInputChange: function() {
+        this.emit(InputConstants.MONTHLY_COST_INPUT_CHANGE);
     },
 
-    addChangeListener: function(callback) {
-        this.on(CHANGE_EVENT, callback);
+    emitIncomeBreakdownInputChange: function() {
+        this.emit(InputConstants.INCOME_BREAKDOWN_INPUT_CHANGE);
     },
 
-    removeChangeListener: function(callback) {
-        this.removeListener(CHANGE_EVENT, callback);
+    addChangeListener: function(TypeOfChange, callback) {
+        this.on(TypeOfChange, callback);
+    },
+    removeChangeListener: function(TypeOfChange, callback) {
+        this.removeListener(TypeOfChange, callback);
     }
 
 });
@@ -33,9 +34,13 @@ var InputStore = assign({}, EventEmitter.prototype, {
 AppDispatcher.register(function(action) {
 
     switch(action.actionType) {
-        case InputConstants.INPUT_CHANGE:
+        case InputConstants.MONTHLY_COST_INPUT_CHANGE:
             _inputs[action.modelKey] = action.modelValue;
-            InputStore.emitChange();
+            InputStore.emitMonthlyCostInputChange();
+            break;
+        case InputConstants.INCOME_BREAKDOWN_INPUT_CHANGE:
+            _inputs[action.modelKey] = action.modelValue;
+            InputStore.emitIncomeBreakdownInputChange();
             break;
         default:
         // no op

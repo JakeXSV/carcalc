@@ -1,11 +1,10 @@
 var AppDispatcher = require('../dispatcher/AppDispatcher');
-var InputActionConstants = require('../constants/InputActionConstants');
 
 var InputActions = {
 
     upsert: function(input) {
         AppDispatcher.dispatch({
-            actionType: InputActionConstants.INPUT_CHANGE,
+            actionType: input.actionType,
             modelKey: input.modelKey,
             modelValue: input.modelValue
         });

@@ -1,5 +1,6 @@
 var React = require('react');
 var AnimateMixin = require('react-animate');
+var InputActionConstants = require('../../constants/InputActionConstants');
 var InputStore = require('../../stores/InputStore');
 var Validators = require('../../util/Validators');
 var MonthlyCostInputDefinitions = require('../../defines/MonthlyCostInputDefinitions');
@@ -24,10 +25,10 @@ var ResultListComponent = React.createClass({
         this.fadeIn();
     },
     componentDidMount: function() {
-        InputStore.addChangeListener(this._onInputChange);
+        InputStore.addChangeListener(InputActionConstants.MONTHLY_COST_INPUT_CHANGE, this._onInputChange);
     },
     componentWillUnmount: function() {
-        InputStore.removeChangeListener(this._onInputChange);
+        InputStore.removeChangeListener(InputActionConstants.MONTHLY_COST_INPUT_CHANGE, this._onInputChange);
     },
     getInitialState: function() {
         return {

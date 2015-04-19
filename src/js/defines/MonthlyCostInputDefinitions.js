@@ -1,9 +1,11 @@
 module.exports.get = function(){
     var DefaultInputConstants = require('../constants/DefaultInputValueConstants');
+    var InputActions = require('../constants/InputActionConstants');
     var Validators = require('../util/Validators');
     var inputs = [
         {
             id: 'vehiclePrice',
+            actionType: InputActions.MONTHLY_COST_INPUT_CHANGE,
             type: 'number',
             label: 'Vehicle Price',
             default: DefaultInputConstants.VEHICLE_PRICE_DEFAULT,
@@ -14,6 +16,7 @@ module.exports.get = function(){
         },
         {
             id: 'downPayment',
+            actionType: InputActions.MONTHLY_COST_INPUT_CHANGE,
             type: 'number',
             label: 'Down Payment',
             default: DefaultInputConstants.DOWN_PAYMENT_DEFAULT,
@@ -24,6 +27,7 @@ module.exports.get = function(){
         },
         {
             id: 'tradeIn',
+            actionType: InputActions.MONTHLY_COST_INPUT_CHANGE,
             type: 'number',
             label: 'Trade In',
             default: DefaultInputConstants.TRADE_IN_DEFAULT,
@@ -34,6 +38,7 @@ module.exports.get = function(){
         },
         {
             id: 'salesTax',
+            actionType: InputActions.MONTHLY_COST_INPUT_CHANGE,
             type: 'number',
             label: 'Sales Tax',
             default: DefaultInputConstants.SALES_TAX_DEFAULT,
@@ -45,6 +50,7 @@ module.exports.get = function(){
         },
         {
             id: 'interestRate',
+            actionType: InputActions.MONTHLY_COST_INPUT_CHANGE,
             type: 'number',
             label: 'Interest Rate (APR)',
             default: DefaultInputConstants.INTEREST_RATE_DEFAULT,
@@ -56,6 +62,7 @@ module.exports.get = function(){
         },
         {
             id: 'term',
+            actionType: InputActions.MONTHLY_COST_INPUT_CHANGE,
             type: 'number',
             label: 'Term (Months)',
             default: DefaultInputConstants.TERM_DEFAULT,
