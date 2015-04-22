@@ -37,7 +37,7 @@ var InputComponent = React.createClass({
     render: function() {
         return (
             <div className="title">
-                <h4 key="title" style={this.getAnimatedStyle('fadeIn')} className="centerText">{this.state.title}</h4>
+                <h5 key="title" style={this.getAnimatedStyle('fadeIn')} className="centerText">{this.state.title}</h5>
             </div>
         );
     }

@@ -48,7 +48,7 @@ var ResultListComponent = React.createClass({
             return (
                 <div>
                     <div id="monthlyCost">
-                        <h2 style={this.getAnimatedStyle('fadeIn')} className="centerText">Car Payment ${monthlyCarCost}/month</h2>
+                        <h2 style={this.getAnimatedStyle('fadeIn')} className="well centerText">Car Payment ${monthlyCarCost}/month</h2>
                     </div>
                     <NetIncomeBasedListComponent monthlyCarCost={monthlyCarCost} />
                 </div>

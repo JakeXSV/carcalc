@@ -28,7 +28,7 @@ var SafetyNetOverTimeComponent = React.createClass({
             for(var i=1; i<=monthsOfSafetyNetEffect; i++){
                 overTime[i] = (this.state.inputs.safetyNet + (this.props.netIncome * i));
             }
-            safetyNetEffectText = <h2 className="centerText">After 6 Months Your Safety Net Would Be At ${overTime[6].toFixed(2)}</h2>;
+            safetyNetEffectText = <h2 className="well centerText">After 6 Months Your Safety Net Would Be At ${overTime[6].toFixed(2)}</h2>;
         }
 
         return (
