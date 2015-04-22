@@ -1,6 +1,6 @@
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 var EventEmitter = require('events').EventEmitter;
-var InputConstants = require('../constants/InputActionConstants');
+var InputActionConstants = require('../constants/InputActionConstants');
 var assign = require('object-assign');
 
 var _inputs = {};
@@ -15,11 +15,11 @@ var InputStore = assign({}, EventEmitter.prototype, {
     },
 
     emitMonthlyCostInputChange: function() {
-        this.emit(InputConstants.MONTHLY_COST_INPUT_CHANGE);
+        this.emit(InputActionConstants.MONTHLY_COST_INPUT_CHANGE);
     },
 
-    emitIncomeBreakdownInputChange: function() {
-        this.emit(InputConstants.INCOME_BREAKDOWN_INPUT_CHANGE);
+    emitScenarioChange: function(scenarioActionTypeConstant) {
+        this.emit(scenarioActionTypeConstant);
     },
 
     addChangeListener: function(TypeOfChange, callback) {
@@ -34,13 +34,21 @@ var InputStore = assign({}, EventEmitter.prototype, {
 AppDispatcher.register(function(action) {
 
     switch(action.actionType) {
-        case InputConstants.MONTHLY_COST_INPUT_CHANGE:
+        case InputActionConstants.MONTHLY_COST_INPUT_CHANGE:
             _inputs[action.modelKey] = action.modelValue;
             InputStore.emitMonthlyCostInputChange();
             break;
-        case InputConstants.INCOME_BREAKDOWN_INPUT_CHANGE:
+        case InputActionConstants.MONTHLY_INCOME_CHANGE:
             _inputs[action.modelKey] = action.modelValue;
-            InputStore.emitIncomeBreakdownInputChange();
+            InputStore.emitScenarioChange(action.actionType);
+            break;
+        case InputActionConstants.MONTHLY_EXPENSES_CHANGE:
+            _inputs[action.modelKey] = action.modelValue;
+            InputStore.emitScenarioChange(action.actionType);
+            break;
+        case InputActionConstants.SAFETY_NET_CHANGE:
+            _inputs[action.modelKey] = action.modelValue;
+            InputStore.emitScenarioChange(action.actionType);
             break;
         default:
         // no op

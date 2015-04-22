@@ -5,7 +5,7 @@ var InputStore = require('../../stores/InputStore');
 var Validators = require('../../util/Validators');
 var MonthlyCostInputDefinitions = require('../../defines/MonthlyCostInputDefinitions');
 var Calculations = require('../../util/Calculations');
-var IncomeBreakdownComponent = require('./ResultComponents/IncomeBreakdownComponent');
+var NetIncomeBasedListComponent = require('./ResultComponents/NetIncomeBasedListComponent');
 
 var ResultListComponent = React.createClass({
     mixins: [AnimateMixin],
@@ -48,9 +48,9 @@ var ResultListComponent = React.createClass({
             return (
                 <div>
                     <div id="monthlyCost">
-                        <h3 style={this.getAnimatedStyle('fadeIn')} className="centerText">${monthlyCarCost}/month</h3>
+                        <h2 style={this.getAnimatedStyle('fadeIn')} className="centerText">Car Payment ${monthlyCarCost}/month</h2>
                     </div>
-                    <IncomeBreakdownComponent monthlyCarCost={monthlyCarCost} />
+                    <NetIncomeBasedListComponent monthlyCarCost={monthlyCarCost} />
                 </div>
             );
         }

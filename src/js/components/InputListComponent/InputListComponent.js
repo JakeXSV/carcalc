@@ -1,11 +1,11 @@
 var React = require('react');
 var InputComponent = require('./InputComponent');
 var MonthlyCostInputDefinitions = require('../../defines/MonthlyCostInputDefinitions');
-var IncomeBreakdownInputDefinitions = require('../../defines/IncomeBreakdownInputDefinitions');
+var ScenarioInputDefinitions = require('../../defines/ScenarioInputDefinitions');
 
 var MainComponent = React.createClass({
     render: function() {
-        var inputs = IncomeBreakdownInputDefinitions.get();
+        var inputs = ScenarioInputDefinitions.get();
         inputs = inputs.concat(MonthlyCostInputDefinitions.get());
         var inputComponents;
         if(inputs !== undefined && inputs.length > 0) {
