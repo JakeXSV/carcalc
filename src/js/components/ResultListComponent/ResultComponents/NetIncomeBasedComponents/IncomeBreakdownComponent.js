@@ -1,3 +1,4 @@
+/*
 var React = require('react');
 var Highcharts = require('react-highcharts');
 
@@ -79,3 +80,4 @@ var IncomeBreakdownComponent = React.createClass({
 });
 
 module.exports = IncomeBreakdownComponent;
+*/

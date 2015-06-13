@@ -1,20 +1,9 @@
 var React = require('react');
-var AnimateMixin = require('react-animate');
 var TitleDefinitions = require('../../defines/TitleDefinitions');
 var titleIntervalTime = 10000;
 var titleUpdateInterval;
 
 var InputComponent = React.createClass({
-    mixins: [AnimateMixin],
-    fadeIn: function(){
-        this.animate(
-            'fadeIn',
-            { opacity: 0 },
-            { opacity: 1 },
-            1000,
-            { easing: 'linear' }
-        );
-    },
     getInitialState: function(){
         var titles = TitleDefinitions.get();
         return {
@@ -28,7 +17,6 @@ var InputComponent = React.createClass({
             self.setState({
                 title: titles[Math.floor((Math.random() * (titles.length)))]
             });
-            self.fadeIn();
         }, titleIntervalTime);
     },
     componentWillUnmount: function(){
@@ -37,7 +25,7 @@ var InputComponent = React.createClass({
     render: function() {
         return (
             <div className="title">
-                <h5 key="title" style={this.getAnimatedStyle('fadeIn')} className="centerText">{this.state.title}</h5>
+                <h5 key="title" className="centerText">{this.state.title}</h5>
             </div>
         );
     }

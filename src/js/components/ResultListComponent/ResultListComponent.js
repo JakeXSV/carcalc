@@ -1,5 +1,4 @@
 var React = require('react');
-var AnimateMixin = require('react-animate');
 var InputActionConstants = require('../../constants/InputActionConstants');
 var InputStore = require('../../stores/InputStore');
 var Validators = require('../../util/Validators');
@@ -8,21 +7,10 @@ var Calculations = require('../../util/Calculations');
 var NetIncomeBasedListComponent = require('./ResultComponents/NetIncomeBasedListComponent');
 
 var ResultListComponent = React.createClass({
-    mixins: [AnimateMixin],
-    fadeIn: function(){
-        this.animate(
-            'fadeIn',
-            { opacity: .5 },
-            { opacity: 1 },
-            500,
-            { easing: 'linear' }
-        );
-    },
     _onInputChange: function() {
         this.setState({
             inputs: InputStore.getAll()
         });
-        this.fadeIn();
     },
     componentDidMount: function() {
         InputStore.addChangeListener(InputActionConstants.MONTHLY_COST_INPUT_CHANGE, this._onInputChange);
@@ -48,7 +36,7 @@ var ResultListComponent = React.createClass({
             return (
                 <div>
                     <div id="monthlyCost">
-                        <h2 style={this.getAnimatedStyle('fadeIn')} className="well centerText">Car Payment ${monthlyCarCost}/month</h2>
+                        <h2 className="well centerText">Car Payment ${monthlyCarCost}/month</h2>
                     </div>
                     <NetIncomeBasedListComponent monthlyCarCost={monthlyCarCost} />
                 </div>
