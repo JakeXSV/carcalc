@@ -1,4 +1,3 @@
-/*
 var React = require('react');
 var Highcharts = require('react-highcharts');
 
@@ -70,7 +69,6 @@ var IncomeBreakdownComponent = React.createClass({
             };
             incomeBreakDownChart = <Highcharts config = {config}></Highcharts>;
         }
-
         return (
             <div>
                 {incomeBreakDownChart}
@@ -80,4 +78,3 @@ var IncomeBreakdownComponent = React.createClass({
 });
 
 module.exports = IncomeBreakdownComponent;
-*/

@@ -5,7 +5,7 @@ var InputStore = require('../../../stores/InputStore');
 var Validators = require('../../../util/Validators');
 var ScenarioInputDefinitions = require('../../../defines/ScenarioInputDefinitions');
 
-//var IncomeBreakdownComponent = require('./NetIncomeBasedComponents/IncomeBreakdownComponent');
+var IncomeBreakdownComponent = require('./NetIncomeBasedComponents/IncomeBreakdownComponent');
 var NetIncomeTextComponent = require('./NetIncomeBasedComponents/NetIncomeTextComponent');
 var SafetyNetOverTimeComponent = require('./NetIncomeBasedComponents/SafetyNetOverTimeComponent');
 
@@ -38,25 +38,24 @@ var ResultListComponent = React.createClass({
         };
     },
     render: function() {
-        //var incomeBreakdownComponent;
+        var incomeBreakdownComponent;
         var netIncomeTextComponent;
         var safetyNetOverTimeComponent;
 
         if(Validators.validateRequiredInputsExist(ScenarioInputDefinitions.get(), this.state.inputs)){
             var netIncome = this.state.inputs.monthlyIncome - this.state.inputs.monthlyExpenses - this.props.monthlyCarCost;
-            /*
             incomeBreakdownComponent = <IncomeBreakdownComponent
                 netIncome={netIncome}
                 monthlyIncome={this.state.inputs.monthlyIncome}
                 monthlyCarCost={this.props.monthlyCarCost}
                 monthlyExpenses={this.state.inputs.monthlyExpenses}
             />;
-            */
             netIncomeTextComponent = <NetIncomeTextComponent netIncome={netIncome} />;
             safetyNetOverTimeComponent = <SafetyNetOverTimeComponent netIncome={netIncome} />;
         }
         return (
             <div>
+                {incomeBreakdownComponent}
                 {netIncomeTextComponent}
                 {safetyNetOverTimeComponent}
             </div>
