@@ -6,6 +6,7 @@
     "**/*.txt"
   ],
   "dependencies": {
-    "bootstrap": null
+    "bootstrap": null,
+    "bootstrap-toggle": null
   }
 }
