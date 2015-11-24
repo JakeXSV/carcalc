@@ -1,4 +1,5 @@
 var React = require('react');
+var ReactDOM = require('react-dom');
 var MainComponent = require('./components/MainComponent');
 
-React.render(<MainComponent />, document.getElementById('app'));
+ReactDOM.render(<MainComponent />, document.getElementById('app'));

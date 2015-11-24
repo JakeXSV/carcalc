@@ -7,7 +7,7 @@ function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         height: '100%',
         width: '100%',
-        videoId: 'nuHfVn_cfHU',
+        videoId: 'ZXsQAXx_ao0',
         playerVars: { 'autoplay': 1, 'controls': 0 },
         events: {
             'onReady': onPlayerReady,
@@ -44,4 +44,4 @@ $(function() {
             states[player.getPlayerState()]();
         }
     })
-})
+});
