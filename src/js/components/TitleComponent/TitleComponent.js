@@ -1,5 +1,5 @@
 var React = require('react');
-//var ReactCSSTransitionGroup = require('react/addons/CSSTransitionGroup');
+var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 var TitleDefinitions = require('../../defines/TitleDefinitions');
 var titleIntervalTime = 10000;
 var titleUpdateInterval;
@@ -27,9 +27,11 @@ var InputComponent = React.createClass({
     render: function() {
         return (
             <div className="title">
-                <div key={this.state.title}>
-                    <h5 key="title" className="centerText">{this.state.title}</h5>
-                </div>
+                <ReactCSSTransitionGroup transitionName="fadeIn" transitionAppear={true} transitionLeave={false}>
+                    <div key={this.state.title}>
+                        <h5 key="title" className="centerText">{this.state.title}</h5>
+                    </div>
+                </ReactCSSTransitionGroup>
             </div>
         );
     }
