@@ -11,16 +11,16 @@
     background: #CC0000;
 }
 .fadeIn-enter {
-  opacity: 0.01;
-  transition: opacity .5s ease-in;
+    opacity: 0.01;
 }
 .fadeIn-enter.fadeIn-enter-active {
-  opacity: 1;
+    opacity: 1;
+    transition: opacity 500ms ease-in;
 }
 .fadeIn-appear {
-  opacity: 0.01;
-  transition: opacity .5s ease-in;
+    opacity: 0.01;
 }
 .fadeIn-appear.fadeIn-appear-active {
-  opacity: 1;
+    opacity: 1;
+    transition: opacity .5s ease-in;
 }
