@@ -42,7 +42,7 @@ var ResultListComponent = React.createClass({
         var netIncomeTextComponent;
         var safetyNetOverTimeComponent;
         if(Validators.validateRequiredInputsExist(ScenarioInputDefinitions.get(), this.state.inputs)){
-            if (this.state.inputs.monthlyIncome) {
+            if (this.state.inputs.monthlyIncome > 0) {
                 var netIncome = this.state.inputs.monthlyIncome - this.state.inputs.monthlyExpenses - this.props.monthlyCarCost;
                 incomeBreakdownComponent = <IncomeBreakdownComponent
                     netIncome={netIncome}
