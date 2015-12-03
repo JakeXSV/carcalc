@@ -4,9 +4,6 @@ var Highcharts = require('react-highcharts');
 var IncomeBreakdownComponent = React.createClass({
     render: function() {
         var incomeBreakDownChart;
-
-        if(this.props.monthlyIncome > 0) {
-
             var breakdowns = [
                 {
                     label: 'Take home',
@@ -68,7 +65,6 @@ var IncomeBreakdownComponent = React.createClass({
                 }]
             };
             incomeBreakDownChart = <Highcharts config = {config}></Highcharts>;
-        }
         return (
             <div>
                 {incomeBreakDownChart}

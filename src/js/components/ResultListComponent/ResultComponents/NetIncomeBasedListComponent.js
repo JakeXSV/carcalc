@@ -41,17 +41,18 @@ var ResultListComponent = React.createClass({
         var incomeBreakdownComponent;
         var netIncomeTextComponent;
         var safetyNetOverTimeComponent;
-
         if(Validators.validateRequiredInputsExist(ScenarioInputDefinitions.get(), this.state.inputs)){
-            var netIncome = this.state.inputs.monthlyIncome - this.state.inputs.monthlyExpenses - this.props.monthlyCarCost;
-            incomeBreakdownComponent = <IncomeBreakdownComponent
-                netIncome={netIncome}
-                monthlyIncome={this.state.inputs.monthlyIncome}
-                monthlyCarCost={this.props.monthlyCarCost}
-                monthlyExpenses={this.state.inputs.monthlyExpenses}
-            />;
-            netIncomeTextComponent = <NetIncomeTextComponent netIncome={netIncome} />;
-            safetyNetOverTimeComponent = <SafetyNetOverTimeComponent netIncome={netIncome} />;
+            if (this.state.inputs.monthlyIncome) {
+                var netIncome = this.state.inputs.monthlyIncome - this.state.inputs.monthlyExpenses - this.props.monthlyCarCost;
+                incomeBreakdownComponent = <IncomeBreakdownComponent
+                    netIncome={netIncome}
+                    monthlyIncome={this.state.inputs.monthlyIncome}
+                    monthlyCarCost={this.props.monthlyCarCost}
+                    monthlyExpenses={this.state.inputs.monthlyExpenses}
+                />;
+                netIncomeTextComponent = <NetIncomeTextComponent netIncome={netIncome} />;
+                safetyNetOverTimeComponent = <SafetyNetOverTimeComponent netIncome={netIncome} />;
+            }
         }
         return (
             <div>
