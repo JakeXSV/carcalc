@@ -1,9 +1,10 @@
 var React = require('react');
+var ReactDOM = require('react-dom');
 var InputActions = require('../../actions/InputActions');
 
 var InputComponent = React.createClass({
     _onInputChange: function(){
-        var input = React.findDOMNode(this.refs.input).value.trim();
+        var input = ReactDOM.findDOMNode(this.refs.input).value.trim();
         if(input === ''){
             input = undefined; //deleted their input; resort to undefined||defaults
         }
