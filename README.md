@@ -1,4 +1,4 @@
-carcalc
+carcalc [![Dependency Status](https://david-dm.org/Jakehp/carcalc.svg)](https://david-dm.org/Jakehp/carcalc)
 ============
 
 An auto loan calculator that doesn't suck. Calculates monthly payment, and provides scenarios if income and expenses are provided.
