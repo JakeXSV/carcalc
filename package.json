@@ -9,22 +9,23 @@
     "url": "https://github.com/jakehp/carcalc"
   },
   "dependencies": {
-    "body-parser": "^1.14.1",
-    "express": "^5.0.0-alpha.2",
+    "body-parser": "^1.14.2",
+    "browserify": "^13.0.0",
+    "express": "^4.13.3",
     "flux": "^2.1.1",
     "keymirror": "^0.1.1",
-    "object-assign": "^3.0.0",
-    "react": "^0.14.3",
-    "react-addons-css-transition-group": "^0.14.3",
-    "react-dom": "^0.14.3",
-    "react-highcharts": "^5.0.6"
+    "object-assign": "^4.0.1",
+    "react": "^0.14.6",
+    "react-addons-css-transition-group": "^0.14.6",
+    "react-dom": "^0.14.6",
+    "react-highcharts": "^6.0.0"
   },
   "devDependencies": {
-    "browserify": "^10.2.4",
+    "browserify": "^13.0.0",
     "envify": "^3.4.0",
     "reactify": "^1.1.1",
-    "uglify-js": "^2.4.23",
-    "watchify": "^3.2.2"
+    "uglify-js": "^2.6.1",
+    "watchify": "^3.7.0"
   },
   "scripts": {
     "start": "watchify src/js/app.js -o public/js/bundle.js -v -d"
