@@ -1,4 +1,4 @@
-module.exports.get = function(){
+module.exports.get = function () {
     var DefaultInputConstants = require('../constants/DefaultInputValueConstants');
     var InputActions = require('../constants/InputActionConstants');
     var Validators = require('../util/Validators');
@@ -12,7 +12,9 @@ module.exports.get = function(){
             required: DefaultInputConstants.VEHICLE_PRICE_DEFAULT === undefined,
             addOn: '$',
             isValid: Validators.validateNumberInput,
-            convert: function(e){ return parseInt(e); }
+            convert: function (e) {
+                return parseInt(e);
+            }
         },
         {
             id: 'downPayment',
@@ -23,7 +25,9 @@ module.exports.get = function(){
             required: DefaultInputConstants.DOWN_PAYMENT_DEFAULT === undefined,
             addOn: '$',
             isValid: Validators.validateNumberInput,
-            convert: function(e){ return parseInt(e); }
+            convert: function (e) {
+                return parseInt(e);
+            }
         },
         {
             id: 'tradeIn',
@@ -34,7 +38,9 @@ module.exports.get = function(){
             required: DefaultInputConstants.TRADE_IN_DEFAULT === undefined,
             addOn: '$',
             isValid: Validators.validateNumberInput,
-            convert: function(e){ return parseInt(e); }
+            convert: function (e) {
+                return parseInt(e);
+            }
         },
         {
             id: 'salesTax',
@@ -46,7 +52,9 @@ module.exports.get = function(){
             addOnBeforeInput: false,
             addOn: '%',
             isValid: Validators.validatePercentInput,
-            convert: function(e){ return parseFloat(e); }
+            convert: function (e) {
+                return parseFloat(e);
+            }
         },
         {
             id: 'interestRate',
@@ -58,7 +66,9 @@ module.exports.get = function(){
             addOnBeforeInput: false,
             addOn: '%',
             isValid: Validators.validatePercentInput,
-            convert: function(e){ return parseFloat(e); }
+            convert: function (e) {
+                return parseFloat(e);
+            }
         },
         {
             id: 'term',
@@ -70,7 +80,9 @@ module.exports.get = function(){
             addOnBeforeInput: false,
             addOn: 'months',
             isValid: Validators.validateNumberInput,
-            convert: function(e){ return parseInt(e); }
+            convert: function (e) {
+                return parseInt(e);
+            }
         }
     ];
     return inputs;

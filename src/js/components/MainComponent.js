@@ -4,7 +4,7 @@ var InputListComponent = require('./InputListComponent/InputListComponent');
 var ResultListComponent = require('./ResultListComponent/ResultListComponent');
 
 var MainComponent = React.createClass({
-    render: function() {
+    render: function () {
         return (
             <div className="mainComponent">
                 <TitleComponent />

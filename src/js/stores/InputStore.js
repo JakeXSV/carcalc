@@ -7,33 +7,33 @@ var _inputs = {};
 
 var InputStore = assign({}, EventEmitter.prototype, {
 
-    get: function(key){
+    get: function (key) {
         return _inputs[key];
     },
-    getAll: function() {
+    getAll: function () {
         return _inputs;
     },
 
-    emitMonthlyCostInputChange: function() {
+    emitMonthlyCostInputChange: function () {
         this.emit(InputActionConstants.MONTHLY_COST_INPUT_CHANGE);
     },
 
-    emitScenarioChange: function(scenarioActionTypeConstant) {
+    emitScenarioChange: function (scenarioActionTypeConstant) {
         this.emit(scenarioActionTypeConstant);
     },
 
-    addChangeListener: function(TypeOfChange, callback) {
+    addChangeListener: function (TypeOfChange, callback) {
         this.on(TypeOfChange, callback);
     },
-    removeChangeListener: function(TypeOfChange, callback) {
+    removeChangeListener: function (TypeOfChange, callback) {
         this.removeListener(TypeOfChange, callback);
     }
 
 });
 
-AppDispatcher.register(function(action) {
+AppDispatcher.register(function (action) {
 
-    switch(action.actionType) {
+    switch (action.actionType) {
         case InputActionConstants.MONTHLY_COST_INPUT_CHANGE:
             _inputs[action.modelKey] = action.modelValue;
             InputStore.emitMonthlyCostInputChange();

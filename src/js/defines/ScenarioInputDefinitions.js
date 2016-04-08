@@ -1,4 +1,4 @@
-module.exports.get = function(){
+module.exports.get = function () {
     var DefaultInputConstants = require('../constants/DefaultInputValueConstants');
     var InputActionConstants = require('../constants/InputActionConstants');
     var Validators = require('../util/Validators');
@@ -12,7 +12,9 @@ module.exports.get = function(){
             required: DefaultInputConstants.MONTHLY_INCOME_DEFAULT === undefined,
             addOn: '$',
             isValid: Validators.validateNumberInput,
-            convert: function(e){ return parseInt(e); }
+            convert: function (e) {
+                return parseInt(e);
+            }
         },
         {
             id: 'monthlyExpenses',
@@ -23,7 +25,9 @@ module.exports.get = function(){
             required: DefaultInputConstants.MONTHLY_EXPENSES_DEFAULT === undefined,
             addOn: '$',
             isValid: Validators.validateNumberInput,
-            convert: function(e){ return parseInt(e); }
+            convert: function (e) {
+                return parseInt(e);
+            }
         },
         {
             id: 'safetyNet',
@@ -34,7 +38,9 @@ module.exports.get = function(){
             required: DefaultInputConstants.SAFETY_NET_DEFAULT === undefined,
             addOn: '$',
             isValid: Validators.validateNumberInput,
-            convert: function(e){ return parseInt(e); }
+            convert: function (e) {
+                return parseInt(e);
+            }
         }
     ];
     return inputs;

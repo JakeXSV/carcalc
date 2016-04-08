@@ -7,24 +7,24 @@ var Calculations = require('../../util/Calculations');
 var NetIncomeBasedListComponent = require('./ResultComponents/NetIncomeBasedListComponent');
 
 var ResultListComponent = React.createClass({
-    _onInputChange: function() {
+    _onInputChange: function () {
         this.setState({
             inputs: InputStore.getAll()
         });
     },
-    componentDidMount: function() {
+    componentDidMount: function () {
         InputStore.addChangeListener(InputActionConstants.MONTHLY_COST_INPUT_CHANGE, this._onInputChange);
     },
-    componentWillUnmount: function() {
+    componentWillUnmount: function () {
         InputStore.removeChangeListener(InputActionConstants.MONTHLY_COST_INPUT_CHANGE, this._onInputChange);
     },
-    getInitialState: function() {
+    getInitialState: function () {
         return {
             inputs: InputStore.getAll()
         };
     },
-    render: function() {
-        if(Validators.validateRequiredInputsExist(MonthlyCostInputDefinitions.get(), this.state.inputs)){
+    render: function () {
+        if (Validators.validateRequiredInputsExist(MonthlyCostInputDefinitions.get(), this.state.inputs)) {
             var monthlyCarCost = Calculations.monthlyCost(
                 this.state.inputs.vehiclePrice,
                 this.state.inputs.downPayment,

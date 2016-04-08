@@ -1,4 +1,4 @@
-module.exports.get = function(){
+module.exports.get = function () {
     return [
         "It's Worth It. Sign. Trust Me.",
         "It's Only 5K Less Than A Mortgage.",

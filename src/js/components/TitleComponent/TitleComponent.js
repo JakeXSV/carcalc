@@ -6,25 +6,25 @@ var titleUpdateInterval;
 
 // https://github.com/facebook/react/issues/1326
 var InputComponent = React.createClass({
-    getInitialState: function(){
+    getInitialState: function () {
         var titles = TitleDefinitions.get();
         return {
             title: titles[Math.floor((Math.random() * (titles.length)))]
         };
     },
-    componentDidMount: function(){
+    componentDidMount: function () {
         var self = this;
-        titleUpdateInterval = setInterval(function(){
+        titleUpdateInterval = setInterval(function () {
             var titles = TitleDefinitions.get();
             self.setState({
                 title: titles[Math.floor((Math.random() * (titles.length)))]
             });
         }, titleIntervalTime);
     },
-    componentWillUnmount: function(){
+    componentWillUnmount: function () {
         clearInterval(titleUpdateInterval);
     },
-    render: function() {
+    render: function () {
         return (
             <div className="title">
                 <ReactCSSTransitionGroup transitionName="fadeIn" transitionAppear={true} transitionLeave={false} transitionAppearTimeout={300} transitionEnterTimeout={500} transitionLeaveTimeout={300}>

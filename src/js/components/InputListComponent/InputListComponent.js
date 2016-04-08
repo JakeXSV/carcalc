@@ -4,11 +4,11 @@ var MonthlyCostInputDefinitions = require('../../defines/MonthlyCostInputDefinit
 var ScenarioInputDefinitions = require('../../defines/ScenarioInputDefinitions');
 
 var MainComponent = React.createClass({
-    render: function() {
+    render: function () {
         var inputs = ScenarioInputDefinitions.get();
         inputs = inputs.concat(MonthlyCostInputDefinitions.get());
         var inputComponents;
-        if(inputs !== undefined && inputs.length > 0) {
+        if (inputs !== undefined && inputs.length > 0) {
             inputComponents = inputs.map(function (e) {
                 return (
                     <InputComponent
@@ -19,7 +19,7 @@ var MainComponent = React.createClass({
                         label={e.label}
                         default={e.default}
                         required={e.required}
-                        addOnBeforeInput={e.addOnBeforeInput||true}
+                        addOnBeforeInput={e.addOnBeforeInput || true}
                         addOn={e.addOn}
                         isValid={e.isValid}
                         convert={e.convert}

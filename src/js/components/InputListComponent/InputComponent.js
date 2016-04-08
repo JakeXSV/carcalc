@@ -3,13 +3,13 @@ var ReactDOM = require('react-dom');
 var InputActions = require('../../actions/InputActions');
 
 var InputComponent = React.createClass({
-    _onInputChange: function(){
+    _onInputChange: function () {
         var input = ReactDOM.findDOMNode(this.refs.input).value.trim();
-        if(input === ''){
+        if (input === '') {
             input = undefined; //deleted their input; resort to undefined||defaults
         }
-        if(this.props.isValid(input)){
-            if(input !== undefined){
+        if (this.props.isValid(input)) {
+            if (input !== undefined) {
                 input = this.props.convert(input);
             }
             InputActions.upsert({
@@ -19,11 +19,12 @@ var InputComponent = React.createClass({
             });
         }
     },
-    render: function() {
-        var before, after;
-        if(this.props.addOnBeforeInput === undefined || this.props.addOnBeforeInput){
+    render: function () {
+        var before = undefined;
+        var after = undefined;
+        if (this.props.addOnBeforeInput === undefined || this.props.addOnBeforeInput) {
             before = <span className="input-group-addon">{this.props.addOn}</span>;
-        }else{
+        } else {
             after = <span className="input-group-addon">{this.props.addOn}</span>;
         }
         var required = this.props.required ? ' required' : '';

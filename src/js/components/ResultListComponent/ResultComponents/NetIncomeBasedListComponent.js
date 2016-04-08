@@ -15,33 +15,33 @@ var listenToActions = [
 ];
 
 var ResultListComponent = React.createClass({
-    _onInputChange: function() {
+    _onInputChange: function () {
         this.setState({
             inputs: InputStore.getAll()
         });
     },
-    componentDidMount: function() {
+    componentDidMount: function () {
         var self = this;
-        listenToActions.forEach(function(actionTypeConstant){
+        listenToActions.forEach(function (actionTypeConstant) {
             InputStore.addChangeListener(actionTypeConstant, self._onInputChange);
         });
     },
-    componentWillUnmount: function() {
+    componentWillUnmount: function () {
         var self = this;
-        listenToActions.forEach(function(actionTypeConstant){
+        listenToActions.forEach(function (actionTypeConstant) {
             InputStore.removeChangeListener(actionTypeConstant, self._onInputChange);
         });
     },
-    getInitialState: function() {
+    getInitialState: function () {
         return {
             inputs: InputStore.getAll()
         };
     },
-    render: function() {
+    render: function () {
         var incomeBreakdownComponent;
         var netIncomeTextComponent;
         var safetyNetOverTimeComponent;
-        if(Validators.validateRequiredInputsExist(ScenarioInputDefinitions.get(), this.state.inputs)){
+        if (Validators.validateRequiredInputsExist(ScenarioInputDefinitions.get(), this.state.inputs)) {
             if (this.state.inputs.monthlyIncome > 0) {
                 var netIncome = this.state.inputs.monthlyIncome - this.state.inputs.monthlyExpenses - this.props.monthlyCarCost;
                 incomeBreakdownComponent = <IncomeBreakdownComponent
