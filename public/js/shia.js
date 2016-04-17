@@ -27,8 +27,8 @@ function onPlayerStateChange(event) {
 function replay() {
     player.seekTo(0, true);
 }
-$(function() {
-    $('#toggle-event').change(function() {
+$(function () {
+    $('#toggle-event').change(function () {
         var states = {
             0: function () {
                 player.seekTo(0, true);
@@ -40,7 +40,7 @@ $(function() {
                 player.playVideo();
             }
         }
-        if (states[player.getPlayerState()] !== undefined){
+        if (states[player.getPlayerState()] !== undefined) {
             states[player.getPlayerState()]();
         }
     })
