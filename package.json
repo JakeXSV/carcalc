@@ -9,16 +9,16 @@
     "url": "https://github.com/jakehp/carcalc"
   },
   "dependencies": {
-    "body-parser": "^1.15.0",
-    "browserify": "^13.0.0",
+    "body-parser": "^1.15.1",
+    "browserify": "^13.0.1",
     "express": "^4.13.4",
     "flux": "^2.1.1",
     "keymirror": "^0.1.1",
-    "object-assign": "^4.0.1",
-    "react": "^15.0.1",
-    "react-addons-css-transition-group": "^15.0.1",
-    "react-dom": "^15.0.1",
-    "react-highcharts": "^8.2.0",
+    "object-assign": "^4.1.0",
+    "react": "^15.0.2",
+    "react-addons-css-transition-group": "^15.0.2",
+    "react-dom": "^15.0.2",
+    "react-highcharts": "^8.3.2",
     "uglify-js": "^2.6.2"
   },
   "devDependencies": {
